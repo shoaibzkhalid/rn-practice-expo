@@ -1,26 +1,14 @@
-import React, { Component } from "react";
-import { Text, StyleSheet, View } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
-// import { createStackNavigator } from "@react-navigation/stack";
+import React from "react";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeScreen from "./HomeScreen";
+import DetailScreen from "./DetailScreen";
 
-export default class ComponentScreen extends Component {
-  render() {
-    return (
-      <NavigationContainer>
-        <Stack.Navigator>
-          <>
-            <Stack.Screen
-              name="HomeScreen"
-              component={HomeScreen}
-              //   options={{ headerShown: false }}
-            />
-          </>
-          )
-        </Stack.Navigator>
-      </NavigationContainer>
-    );
-  }
+const Tab = createBottomTabNavigator();
+export default function ComponentScreen() {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Detail" component={DetailScreen} />
+    </Tab.Navigator>
+  );
 }
-
-const styles = StyleSheet.create({});
